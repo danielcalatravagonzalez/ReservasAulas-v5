@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbPaginaPrincipal" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.reservasaulas.mvc.vista.grafica.controladores.ControladorPaginaPrincipal">
+  <children>
+      <MenuBar fx:id="mbPaginaPrincipal">
+        <menus>
+          <Menu mnemonicParsing="false" text="Archivo">
+            <items>
+                  <MenuItem fx:id="miSalir" mnemonicParsing="false" onAction="#acMiSalir" text="Salir" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem fx:id="miAcercaDe" mnemonicParsing="false" text="Acerca de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+    <AnchorPane fx:id="apPaginaPrincipal" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TabPane fx:id="tpPaginaPrincipal" prefHeight="400.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab fx:id="tpAulas" text="Aulas">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tvAulas" prefHeight="275.0" prefWidth="640.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcNombreAula" prefWidth="139.0" text="Nombre del aula" />
+                                    <TableColumn fx:id="tcNumPuestos" prefWidth="159.0" text="Número de puestos" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="btAnadirAula" layoutX="62.0" layoutY="298.0" mnemonicParsing="false" text="Añadir Aula" />
+                              <Button fx:id="btBorrarAula" layoutX="209.0" layoutY="298.0" mnemonicParsing="false" text="Borrar Aula" />
+                              <Button fx:id="btVerReservasAulas" layoutX="360.0" layoutY="298.0" mnemonicParsing="false" text="Ver Reservas Aula" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tpProfesores" text="Profesores">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tvProfesores" prefHeight="275.0" prefWidth="640.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcNombreProfesor" prefWidth="172.0" text="Nombre del profesor" />
+                                    <TableColumn fx:id="tcCorreo" prefWidth="120.0" text="Correo" />
+                                    <TableColumn fx:id="tcTelefono" prefWidth="140.0" text="Teléfono" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="btAnadirProfesor" layoutX="62.0" layoutY="298.0" mnemonicParsing="false" text="Añadir Profesor" />
+                              <Button fx:id="btBorrarProfesor" layoutX="209.0" layoutY="298.0" mnemonicParsing="false" text="Borrar Profesor" />
+                              <Button fx:id="btVerReservasProfesor" layoutX="377.0" layoutY="298.0" mnemonicParsing="false" text="Reservas del profesor" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tpReservas" text="Reservas">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tvReservas" prefHeight="275.0" prefWidth="640.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcNombreProfesorReservas" prefWidth="125.0" text="Profesor" />
+                                    <TableColumn fx:id="tcNombreAulaReservas" prefWidth="116.0" text="Aula" />
+                                    <TableColumn fx:id="tcPermanencia" prefWidth="221.0" text="Permanencia" />
+                                    <TableColumn fx:id="tcPuntos" minWidth="0.0" prefWidth="122.0" text="Puntos" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="btCrearReserva" layoutX="90.0" layoutY="299.0" mnemonicParsing="false" text="Crear Reserva" />
+                              <Button fx:id="btAnularReserva" layoutX="342.0" layoutY="299.0" mnemonicParsing="false" text="Anular Reserva" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
