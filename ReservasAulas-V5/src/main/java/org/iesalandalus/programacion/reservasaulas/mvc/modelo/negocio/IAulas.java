@@ -34,4 +34,5 @@ public interface IAulas {
 	// Metodo representar: guarda arrayList en toString pasando por iterador
 	List<String> representar();
 
+
 }

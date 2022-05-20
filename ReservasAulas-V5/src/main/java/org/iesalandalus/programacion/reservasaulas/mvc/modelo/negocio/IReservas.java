@@ -48,4 +48,5 @@ public interface IReservas {
 	// Método consultarDisponibilidad(Aula,Permanencia)
 	boolean consultarDisponibilidad(Aula aula, Permanencia permanencia);
 
+
 }
