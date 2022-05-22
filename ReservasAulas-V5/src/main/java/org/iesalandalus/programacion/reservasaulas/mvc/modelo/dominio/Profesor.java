@@ -2,6 +2,8 @@ package org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Profesor implements Comparable<Profesor>, Serializable {
 	// Atributos
@@ -76,12 +78,16 @@ public class Profesor implements Comparable<Profesor>, Serializable {
 	public void setTelefono(String telefono) {
 		if (telefono == null) {
 			this.telefono = telefono;
-		} else if (telefono.isBlank() || telefono.length() != 9 || !telefono.matches(ER_TELEFONO)) {
-		      throw new IllegalArgumentException("ERROR: El teléfono del profesor no es válido.");
-		    } else {
-		    	this.telefono = telefono;
-		    } 
-		  }
+		} else {
+			Pattern patron = Pattern.compile(ER_TELEFONO);
+			Matcher comparador = patron.matcher(telefono);
+			if (comparador.matches() == false) {
+				throw new IllegalArgumentException("ERROR: El teléfono del profesor no es válido.");
+			}
+		}
+		this.telefono = telefono;
+	}
+		  
 
 	// Getter de nombre
 	public String getNombre() {

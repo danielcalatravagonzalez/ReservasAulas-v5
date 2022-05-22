@@ -21,13 +21,13 @@ public class MainApp {
 		}
 
 		private static IFuenteDatos procesarArgumentosModelo(String[] args) {
-			IFuenteDatos fuenteDatos = null;
+			IFuenteDatos fuenteDatos = FactoriaFuenteDatos.MONGODB.crear();;
 			for (String argumento : args) {
-				if (argumento.equals("-fMemoria")) {
+				if (argumento.equalsIgnoreCase("-fmemoria")) {
 					fuenteDatos = FactoriaFuenteDatos.MEMORIA.crear();
-				} else if (argumento.equals("-fFicheros")) {
+				} else if (argumento.equalsIgnoreCase("-fficheros")) {
 					fuenteDatos = FactoriaFuenteDatos.FICHEROS.crear();
-				} else if (argumento.equals("-fMongodb")) {
+				} else if (argumento.equalsIgnoreCase("-fmongodb")) {
 					fuenteDatos = FactoriaFuenteDatos.MONGODB.crear();
 				}
 			}
@@ -35,13 +35,13 @@ public class MainApp {
 		}
 
 		private static IVista procesarArgumentosVista(String[] args) {
-			IVista vista=null;
+			IVista vista = FactoriaVista.GRAFICA.crear();
 			for(String argumento : args) {
-				if(argumento.equals("-vgrafica")) {
-					vista=FactoriaVista.GRAFICA.crear();
+				if(argumento.equalsIgnoreCase("-vgrafica")) {
+					vista = FactoriaVista.GRAFICA.crear();
 				}
-				else if (argumento.equals("-vtexto")) {
-					vista=FactoriaVista.TEXTO.crear();
+				else if (argumento.equalsIgnoreCase("-vtexto")) {
+					vista = FactoriaVista.TEXTO.crear();
 				}
 			}
 			return vista;
