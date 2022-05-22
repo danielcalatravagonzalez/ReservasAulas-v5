@@ -8,7 +8,6 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.IModelo;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.Modelo;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.FactoriaVista;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.IVista;
-import org.iesalandalus.programacion.reservasaulas.mvc.vista.texto.VistaTexto;
 
 public class MainApp {		
 
